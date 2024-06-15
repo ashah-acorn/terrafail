@@ -1,7 +1,7 @@
 
 
 # ---------------------------------------------------------------------
-# DynamoDB Tables
+# DynamoDB
 # ---------------------------------------------------------------------
 resource "aws_dynamodb_table" "TerraFailDynamoDB" {
   name           = "TerraFailDynamoDB"
