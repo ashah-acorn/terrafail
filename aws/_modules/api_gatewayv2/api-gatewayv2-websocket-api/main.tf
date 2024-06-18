@@ -1,7 +1,7 @@
 
 
 # ---------------------------------------------------------------------
-# ApiGateway
+# ApiGateway v2
 # ---------------------------------------------------------------------
 resource "aws_apigatewayv2_api" "TerraFailAPIv2" {
   name          = "TerraFailAPIv2"
