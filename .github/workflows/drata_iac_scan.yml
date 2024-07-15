@@ -19,6 +19,6 @@ jobs:
             DRATA_API_TOKEN: ${{ secrets.DRATA_IAC_PIPELINE_KEY_DEV }}
             GITHUB_REPOSITORY: $GITHUB_REPOSITORY
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            DRATA_ENVIRONMENT: 'app04'
+            DRATA_ENVIRONMENT: 'app-04'
         with:
             minimumSeverity: 'CRITICAL'
