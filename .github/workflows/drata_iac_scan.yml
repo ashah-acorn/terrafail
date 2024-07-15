@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Drata Action
-        uses: drata/compliance-as-code-action@v0.0.102
+        uses: drata/compliance-as-code-action@v0.0.103
         env:
             DRATA_API_TOKEN: ${{ secrets.DRATA_IAC_PIPELINE_KEY_DEV }}
             GITHUB_REPOSITORY: $GITHUB_REPOSITORY
