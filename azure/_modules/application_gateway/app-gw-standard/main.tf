@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "TerraFailAppGateway_rg" {
 # Application Gateway
 # ---------------------------------------------------------------------
 resource "azurerm_application_gateway" "TerraFailAppGateway" {
-  name                = "TerraFailAppGateway"
+  name                = "TerraFailAppGateway" # Drata: name should be set to any of AppGwSslPolicy20220101S, AppGwSslPolicy20220101
   resource_group_name = azurerm_resource_group.TerraFailAppGateway_rg.name
   location            = azurerm_resource_group.TerraFailAppGateway_rg.location
 
