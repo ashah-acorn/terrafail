@@ -4,6 +4,7 @@
 # ApiGateway
 # ---------------------------------------------------------------------
 resource "aws_apigatewayv2_api" "TerraFailAPIv2" {
+  # Drata: Configure [aws_apigatewayv2_api.tags] to ensure that organization-wide tagging conventions are followed.
   name          = "TerraFailAPIv2"
   protocol_type = "HTTP"
 
@@ -19,6 +20,7 @@ resource "aws_apigatewayv2_api_mapping" "TerraFailAPIv2_mapping" {
 }
 
 resource "aws_apigatewayv2_domain_name" "TerraFailAPIv2_domain" {
+  # Drata: Configure [aws_apigatewayv2_domain_name.tags] to ensure that organization-wide tagging conventions are followed.
   domain_name = "thisisthedarkside.com"
 
   domain_name_configuration {
@@ -40,6 +42,7 @@ resource "aws_apigatewayv2_integration" "TerraFailAPIv2_integration" {
 }
 
 resource "aws_apigatewayv2_stage" "TerraFailAPIv2_stage" {
+  # Drata: Configure [aws_apigatewayv2_stage.tags] to ensure that organization-wide tagging conventions are followed.
   api_id = aws_apigatewayv2_api.TerraFailAPIv2.id
   name   = "TerraFailAPIv2_stage"
 
@@ -60,6 +63,7 @@ resource "aws_apigatewayv2_route" "TerraFailAPIv2_route" {
 # ELBV2
 # ---------------------------------------------------------------------
 resource "aws_lb" "TerraFailAPIv2_lb" {
+  # Drata: Configure [aws_lb.tags] to ensure that organization-wide tagging conventions are followed.
   name                       = "TerraFailAPIv2_lb"
   load_balancer_type         = "application"
   drop_invalid_header_fields = true
@@ -190,6 +194,7 @@ resource "aws_route53_record" "TerraFailAPIv2_route_record" {
 # KMS
 # ---------------------------------------------------------------------
 resource "aws_kms_key" "TerraFailAPIv2_key" {
+  # Drata: Configure [aws_kms_key.tags] to ensure that organization-wide tagging conventions are followed.
   description             = "TerraFailAPIv2_key"
   deletion_window_in_days = 10
 
@@ -240,6 +245,7 @@ EOF
 # IAM
 # ---------------------------------------------------------------------
 resource "aws_iam_role" "TerraFailAPIv2_role" {
+  # Drata: Configure [aws_iam_role.tags] to ensure that organization-wide tagging conventions are followed.
   name = "TerraFailAPIv2_role"
   path = "/"
 

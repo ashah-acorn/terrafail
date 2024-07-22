@@ -4,6 +4,7 @@
 # CloudFront
 # ---------------------------------------------------------------------
 resource "aws_cloudfront_distribution" "TerraFailCloudfront_distribution" {
+  # Drata: Configure [aws_cloudfront_distribution.tags] to ensure that organization-wide tagging conventions are followed.
   enabled = true
   aliases = ["www.thisisthedarkside.com", "thisisthedarkside.com"]
 
@@ -60,6 +61,7 @@ resource "aws_s3_bucket" "TerraFailCloudfront_bucket" {
   acl    = "private"
 
   tags = {
+    # Drata: Configure [aws_s3_bucket.tags] to ensure that organization-wide tagging conventions are followed.
     Name        = "My bucket"
     Environment = "Dev"
   }

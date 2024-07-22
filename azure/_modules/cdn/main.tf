@@ -9,6 +9,7 @@ resource "azurerm_resource_group" "TerraFailCDN_rg" {
 # CDN
 # ---------------------------------------------------------------------
 resource "azurerm_cdn_profile" "TerraFailCDN_profile" {
+  # Drata: Configure [azurerm_cdn_profile.tags] to ensure that organization-wide tagging conventions are followed.
   name                = "TerraFailCDN_profile"
   location            = azurerm_resource_group.TerraFailCDN_rg.location
   resource_group_name = azurerm_resource_group.TerraFailCDN_rg.name
@@ -16,6 +17,7 @@ resource "azurerm_cdn_profile" "TerraFailCDN_profile" {
 }
 
 resource "azurerm_cdn_endpoint" "TerraFailCDN_endpoint" {
+  # Drata: Configure [azurerm_cdn_endpoint.tags] to ensure that organization-wide tagging conventions are followed.
   name                = "TerraFailCDN_endpoint"
   profile_name        = azurerm_cdn_profile.TerraFailCDN_profile.name
   location            = azurerm_resource_group.TerraFailCDN_rg.location

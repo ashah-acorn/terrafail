@@ -2,6 +2,7 @@
 # Container
 # ---------------------------------------------------------------------
 resource "google_container_cluster" "TerraFailContainer_cluster" {
+  # Drata: Configure [google_container_cluster.node_config.labels] to ensure that organization-wide label conventions are followed.
   name                    = "TerraFailContainer_cluster"
   initial_node_count      = 3
   enable_kubernetes_alpha = true
@@ -26,6 +27,7 @@ resource "google_container_cluster" "TerraFailContainer_cluster" {
 }
 
 resource "google_container_node_pool" "TerraFailContainer_node_pool" {
+  # Drata: Configure [google_container_node_pool.node_config.labels] to ensure that organization-wide label conventions are followed.
   name       = "TerraFailContainer_node_pool"
   cluster    = google_container_cluster.TerraFailContainer_cluster.name
   node_count = 1

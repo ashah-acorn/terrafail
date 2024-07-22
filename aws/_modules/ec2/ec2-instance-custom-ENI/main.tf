@@ -24,6 +24,7 @@ resource "aws_instance" "TerraFailEC2Instance" {
     volume_size           = 5
 
     tags = {
+      # Drata: Configure [aws_instance.tags] to ensure that organization-wide tagging conventions are followed.
       "key" = "value"
     }
   }
@@ -83,10 +84,12 @@ resource "aws_subnet" "TerraFailEC2Instance_subnet" {
 }
 
 resource "aws_vpc" "TerraFailEC2Instance_vpc" {
+  # Drata: Configure [aws_vpc.tags] to ensure that organization-wide tagging conventions are followed.
   cidr_block = "10.0.0.0/16"
 }
 
 resource "aws_security_group" "TerraFailEC2Instance_security_group" {
+  # Drata: Configure [aws_security_group.tags] to ensure that organization-wide tagging conventions are followed.
   name                   = "TerraFailEC2Instance_security_group"
   description            = "Allow TLS inbound traffic"
   vpc_id                 = aws_vpc.TerraFailEC2Instance_vpc.id

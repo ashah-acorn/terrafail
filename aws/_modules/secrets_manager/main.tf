@@ -13,6 +13,7 @@ resource "aws_secretsmanager_secret_rotation" "TerraFailSecretsManager_rotation"
 }
 
 resource "aws_secretsmanager_secret" "TerraFailSecretsManager_secret" {
+  # Drata: Configure [aws_secretsmanager_secret.tags] to ensure that organization-wide tagging conventions are followed.
   name                    = "TerraFailSecretsManager_secret"
   description             = "TerraFailSecretsManager_secret description"
   recovery_window_in_days = 10
@@ -74,6 +75,7 @@ resource "aws_lambda_permission" "TerraFailSecretsManager_permission" {
 # SNS
 # ---------------------------------------------------------------------
 resource "aws_sns_topic" "TerraFailSecretsManager_topic" {
+  # Drata: Configure [aws_sns_topic.tags] to ensure that organization-wide tagging conventions are followed.
   name = "TerraFailSecretsManager_topic"
 }
 
@@ -81,6 +83,7 @@ resource "aws_sns_topic" "TerraFailSecretsManager_topic" {
 # Network
 # ---------------------------------------------------------------------
 resource "aws_security_group" "TerraFailSecretsManager_security_group" {
+  # Drata: Configure [aws_security_group.tags] to ensure that organization-wide tagging conventions are followed.
   vpc_id = aws_vpc.TerraFailSecretsManager_vpc.id
   egress {
     from_port        = 0
@@ -101,6 +104,7 @@ resource "aws_subnet" "TerraFailSecretsManager_subnet" {
 }
 
 resource "aws_vpc" "TerraFailSecretsManager_vpc" {
+  # Drata: Configure [aws_vpc.tags] to ensure that organization-wide tagging conventions are followed.
   cidr_block = "10.0.0.0/16"
 }
 
@@ -109,6 +113,7 @@ resource "aws_vpc" "TerraFailSecretsManager_vpc" {
 # IAM
 # ---------------------------------------------------------------------
 resource "aws_iam_role" "TerraFailSecretsManager_role" {
+  # Drata: Configure [aws_iam_role.tags] to ensure that organization-wide tagging conventions are followed.
   name               = "TerraFailSecretsManager_role"
   assume_role_policy = <<EOF
 {

@@ -4,6 +4,7 @@
 # RDS
 # ---------------------------------------------------------------------
 resource "aws_rds_cluster" "TerraFailRDS_cluster" {
+  # Drata: Configure [aws_rds_cluster.tags] to ensure that organization-wide tagging conventions are followed.
   cluster_identifier                  = "TerraFailRDS_cluster"
   database_name                       = "terrafailrdsdb"
   engine                              = "aurora-mysql"
@@ -20,6 +21,7 @@ resource "aws_rds_cluster" "TerraFailRDS_cluster" {
 }
 
 resource "aws_db_option_group" "TerraFailRDS_option_group" {
+  # Drata: Configure [aws_db_option_group.tags] to ensure that organization-wide tagging conventions are followed.
   name                     = "TerraFailRDS_option_group"
   option_group_description = "Terraform Option Group"
   engine_name              = "mysql"
@@ -51,6 +53,7 @@ resource "aws_db_proxy" "TerraFailRDS_proxy" {
 }
 
 resource "aws_db_subnet_group" "TerraFailRDS_subnet_group" {
+  # Drata: Configure [aws_db_subnet_group.tags] to ensure that organization-wide tagging conventions are followed.
   name        = "TerraFailRDS_subnet_group"
   description = "Our main group of subnets"
   subnet_ids  = [aws_subnet.TerraFailRDS_subnet.id, aws_subnet.TerraFailRDS_subnet_2.id]

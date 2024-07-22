@@ -87,6 +87,7 @@ resource "aws_kinesis_stream" "TerraFailLambda_stream" {
 # SNS
 # ---------------------------------------------------------------------
 resource "aws_sns_topic" "TerraFailLambda_topic" {
+  # Drata: Configure [aws_sns_topic.tags] to ensure that organization-wide tagging conventions are followed.
   name = "TerraFailLambda_topic"
 
   policy = <<EOF
@@ -108,6 +109,7 @@ EOF
 # Network
 # ---------------------------------------------------------------------
 resource "aws_security_group" "TerraFailLambda_security_group" {
+  # Drata: Configure [aws_security_group.tags] to ensure that organization-wide tagging conventions are followed.
   vpc_id = aws_vpc.TerraFailLambda_vpc.id
   egress {
     from_port        = 0
@@ -128,6 +130,7 @@ resource "aws_subnet" "TerraFailLambda_subnet" {
 }
 
 resource "aws_vpc" "TerraFailLambda_vpc" {
+  # Drata: Configure [aws_vpc.tags] to ensure that organization-wide tagging conventions are followed.
   cidr_block = "10.0.0.0/16"
 }
 
@@ -135,6 +138,7 @@ resource "aws_vpc" "TerraFailLambda_vpc" {
 # IAM
 # ---------------------------------------------------------------------
 resource "aws_iam_role" "TerraFailLambda_role" {
+  # Drata: Configure [aws_iam_role.tags] to ensure that organization-wide tagging conventions are followed.
   name               = "TerraFailLambda_role"
   assume_role_policy = <<EOF
 {

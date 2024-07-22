@@ -4,6 +4,7 @@
 # ELBv1
 # ---------------------------------------------------------------------
 resource "aws_elb" "TerraFailELB" {
+  # Drata: Configure [aws_elb.tags] to ensure that organization-wide tagging conventions are followed.
   name     = "TerraFailELB"
   subnets  = [aws_subnet.TerraFailELB_subnet.id]
   internal = true
@@ -33,6 +34,7 @@ resource "aws_elb" "TerraFailELB" {
 # Network
 # ---------------------------------------------------------------------
 resource "aws_security_group" "TerraFailELB_security_group" {
+  # Drata: Configure [aws_security_group.tags] to ensure that organization-wide tagging conventions are followed.
   name                   = "TerraFailELB_security_group"
   description            = "Allow TLS inbound traffic"
   vpc_id                 = aws_vpc.TerraFailELB_vpc.id
@@ -66,5 +68,6 @@ resource "aws_subnet" "TerraFailELB_subnet" {
 }
 
 resource "aws_vpc" "TerraFailELB_vpc" {
+  # Drata: Configure [aws_vpc.tags] to ensure that organization-wide tagging conventions are followed.
   cidr_block = "10.0.0.0/16"
 }

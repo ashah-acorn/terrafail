@@ -7,6 +7,7 @@ resource "azurerm_resource_group" "TerraFailVMSS_rg" {
 # Virtual Machine Scale Set
 # ---------------------------------------------------------------------
 resource "azurerm_linux_virtual_machine_scale_set" "TerraFailVMSS_linux" {
+  # Drata: Configure [azurerm_linux_virtual_machine_scale_set.tags] to ensure that organization-wide tagging conventions are followed.
   name                            = "TerraFailVMSS_linux"
   resource_group_name             = azurerm_resource_group.TerraFailVMSS_rg.name
   location                        = azurerm_resource_group.TerraFailVMSS_rg.location
@@ -61,6 +62,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "TerraFailVMSS_linux" {
 }
 
 resource "azurerm_windows_virtual_machine_scale_set" "TerraFailVMSS_windows" {
+  # Drata: Configure [azurerm_windows_virtual_machine_scale_set.tags] to ensure that organization-wide tagging conventions are followed.
   name                       = "TerraFailVMSS_windows"
   resource_group_name        = azurerm_resource_group.TerraFailVMSS_rg.name
   location                   = azurerm_resource_group.TerraFailVMSS_rg.location
@@ -122,6 +124,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "TerraFailVMSS_windows" {
 # LoadBalancer
 # ---------------------------------------------------------------------
 resource "azurerm_lb" "TerraFailVMSS_lb" {
+  # Drata: Configure [azurerm_lb.tags] to ensure that organization-wide tagging conventions are followed.
   name                = "TerraFailVMSS_lb"
   location            = azurerm_resource_group.TerraFailVMSS_rg.location
   resource_group_name = azurerm_resource_group.TerraFailVMSS_rg.name
@@ -180,6 +183,7 @@ resource "azurerm_disk_encryption_set" "TerraFailVMSS_disk_encryption_set" {
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "TerraFailVMSS_vault" {
+  # Drata: Configure [azurerm_key_vault.tags] to ensure that organization-wide tagging conventions are followed.
   name                        = "TerraFailVMSS_vault"
   location                    = azurerm_resource_group.TerraFailVMSS_rg.location
   resource_group_name         = azurerm_resource_group.TerraFailVMSS_rg.name
@@ -192,6 +196,7 @@ resource "azurerm_key_vault" "TerraFailVMSS_vault" {
 }
 
 resource "azurerm_key_vault_key" "TerraFailVMSS_vault_key" {
+  # Drata: Configure [azurerm_key_vault_key.tags] to ensure that organization-wide tagging conventions are followed.
   name         = "TerraFailVMSS_vault_key"
   key_vault_id = azurerm_key_vault.TerraFailVMSS_vault.id
   key_type     = "RSA"
@@ -291,6 +296,7 @@ resource "azurerm_network_security_group" "TerraFailVMSS_nsg" {
 }
 
 resource "azurerm_virtual_network" "TerraFailVMSS_vnet" {
+  # Drata: Configure [azurerm_virtual_network.tags] to ensure that organization-wide tagging conventions are followed.
   name                = "TerraFailVMSS_vnet"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.TerraFailVMSS_rg.location

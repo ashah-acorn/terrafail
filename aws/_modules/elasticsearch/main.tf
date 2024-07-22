@@ -3,6 +3,7 @@
 # ElasticSearch
 # ---------------------------------------------------------------------
 resource "aws_elasticsearch_domain" "TerraFailElasticache_domain" {
+  # Drata: Configure [aws_elasticsearch_domain.tags] to ensure that organization-wide tagging conventions are followed.
   domain_name           = "TerraFailElasticache_domain"
   elasticsearch_version = "7.10"
 
@@ -43,6 +44,7 @@ resource "aws_elasticsearch_domain" "TerraFailElasticache_domain" {
 # KMS
 # ---------------------------------------------------------------------
 resource "aws_kms_key" "TerraFailElasticache_key" {
+  # Drata: Configure [aws_kms_key.tags] to ensure that organization-wide tagging conventions are followed.
   description             = "TerraFailElasticache_key"
   deletion_window_in_days = 10
 
